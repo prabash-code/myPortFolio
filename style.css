@@ -1,9 +1,110 @@
-.body{
-    background-color:#061a40;
+/* nav-bar css */
+
+.nav-link,
+.nav-link:focus {
+  color: rgb(1, 2, 2) !important;
+  font-weight: 700;
+
 }
 
-#about{
-    color: white;
-    margin: 50px;
-    margin-right: 500px;
+.nav-link:hover {
+  color: rgb(106, 226, 106) !important;
+}
+
+.container-fluid {
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  color: white;
+  justify-content: center;
+
+}
+
+/* wallpaper */
+.imageFront {
+  display: flex;
+  position: absolute;
+  /* fixed so it stays on the right while scrolling */
+
+  height: 250px;
+  /* full viewport height */
+  width: 250px;
+  /* adjust width as needed */
+  border-radius: 120px;
+  border-bottom-left-radius: 120px;
+  overflow: hidden;
+  /* clips image inside the curved shape */
+  box-shadow: -10px 0 30px rgba(99, 188, 113, 1.0);
+  z-index: -1;
+  margin-top: 50px;
+  margin-left: 1000px;
+  /* behind your main content */
+  /* fallback bg */
+}
+
+.name-of-user {
+  font-weight: 20em;
+  font-size: 15px;
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 25px;
+  color: chartreuse;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  object-fit: contain;
+
+}
+
+.topic-services {
+  color: chartreuse;
+  align-content: center;
+  text-align: center;
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.card {
+  margin-left: 200px;
+  direction: flex;
+}
+
+/* resume page */
+.resume-page h2 {
+  color: chartreuse;
+  text-align: center;
+  font-family: "Gravitas One", serif;
+  font-weight: 200;
+  font-style: normal;
+
+}
+
+/* portfolio page */
+.portfolio-page {
+  color: chartreuse;
+  text-align: center;
+  font-family: "Gravitas One", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+/* connect page */
+.connect-page{
+  text-align: center;
+   font-family: "Gravitas One", serif;
+  font-weight: 400;
+}
+.contact-details input{
+  margin: 10px;
+
+  
+}
+.contact-details button{
+  margin: 10px;
 }

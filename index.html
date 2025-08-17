@@ -1,50 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prabash Withanachchi - Portfolio</title>
 
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css">
-</head>
-<body class="body">
-    <div >
-      <!-- navigation Bar -->
-         <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">About</a>
-        <a class="nav-link" href="progetx.html">Projects</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-        <a class="nav-link btn btn-outline-primary " href="#">Hire Me</a>
-      
+
+    <style>
+      body {
+        background-color: #0B1D51;
+        font-family: 'Nunito', sans-serif;
+        color: #fff;
+      }
+
+
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 60px 20px 40px 20px;
+      }
+
+      .hero-section img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+       
+      }
+
+      .hero-section h2 {
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .hero-section p.role {
+        font-size: 18px;
+        font-weight: 500;
+        color: #18dd59;
+        margin-bottom: 20px;
+      }
+
+      .hero-section p.bio {
+        font-size: 16px;
+        font-weight: 500;
+        max-width: 600px;
+        margin: 0 auto 20px auto;
+      }
+
+      /* Button */
+      .hero-section .btn-success {
+        font-weight: 600;
+        padding: 10px 25px;
+      }
+
+      /* Social Icons */
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+      }
+
+      .social-icons img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .social-icons img:hover {
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary shadow-sm">
+      <div class="container">
+       
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" href="index.html">HOME</a>
+            <a class="nav-link" href="services.html">SERVICES</a>
+            <a class="nav-link" href="resume.html">RESUME</a>
+            <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
+            <a class="nav-link" href="contact.html">CONTACTS</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</nav> 
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <img src="/img/img.JPG" alt="Prabash Withanachchi" />
+      <h2>HI, I'M PRABASH WITHANACHCHI</h2>
+      <p class="role">Full Stack Developer</p>
 
-<div style="margin-left: 100px ; margin-bottom: 100 px; margin-top: 40px;">
-  <img src="img.JPG " width="300" height="300" alt="" style="border: 5px; border-radius: 200px; box-shadow: 5px 5px 15px chartreuse;"  >
+      <p class="bio">
+        I'm an enthusiastic and dedicated beginner software engineer with hands-on
+        experience in Java and MySQL. I'm currently focused on building a strong
+        foundation in object-oriented programming, database management, and
+        application development. I enjoy learning through real coding projects and
+        continuously exploring new technologies in the software development field.
+        I’m confident in my ability to adapt quickly, solve problems logically,
+        and work well in team environments.
+      </p>
 
-</div>
-    </div>
+      <button type="button" class="btn btn-success">Download CV</button>
 
-<div>
-  <h1 style="color: white; margin-left: 50px; margin-top: 100px;" >About....</h1>
-    <p id="about">I'm an enthusiastic and driven software engineer in the making, with practical experience in Java and MySQL, and a growing passion for building real-world applications. Currently focused on mastering object-oriented programming, database management, and the fundamentals of modern software development.
+      <div class="social-icons">
+        <img src="/img/github.png" alt="GitHub" />
+        <img src="/img/linkedin.png" alt="LinkedIn" />
+        <img src="/img/pinterest.png" alt="Pinterest" />
+        <img src="/img/youtube.png" alt="YouTube" />
+      </div>
+    </section>
 
-I believe the best way to learn is by doing — which is why I dive deep into hands-on projects that challenge me to think critically and solve problems efficiently. Whether working independently or in a team, I’m always eager to contribute, learn, and adapt to new tools and technologies.
-
-Right now, I’m sharpening my skills through self-learning, academic projects, and coding challenges, with a clear goal in mind: to become a versatile, creative, and impact-driven software developer.</p>
-</div>
-
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>   
-</body>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
