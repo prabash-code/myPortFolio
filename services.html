@@ -1,168 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Services</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Prabash | My Services</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-      body {
-        background-color: #0B1D51;
-       
-      }
+        :root {
+            --bg: #050a18;
+            --accent: #18dd59;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-muted: #94a3b8;
+        }
 
-      .topic-services {
-        text-align: center;
-        margin: 50px 0 30px 0;
-        font-weight: 700;
-      }
+        body {
+            background-color: var(--bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
 
-      .card {
-        border-radius: 12px;
-        transition: transform 0.3s;
-      }
+        /* Ambient Glow Backgrounds */
+        .glow {
+            position: fixed;
+            width: 500px; height: 500px;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        .glow-1 { background: var(--accent); top: -10%; left: -10%; }
+        .glow-2 { background: #6366f1; bottom: -10%; right: -10%; }
 
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-      }
+        /* Navbar Styling */
+        .navbar {
+            padding: 1.5rem 0;
+            background: rgba(5, 10, 24, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-link { 
+            font-weight: 600; color: #fff !important; margin-left: 20px;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
 
-      .card-title {
-        font-weight: 600;
-      }
+        /* Heading */
+        .topic-services {
+            font-weight: 800;
+            font-size: 3rem;
+            text-align: center;
+            margin: 60px 0 40px;
+            letter-spacing: -1px;
+        }
+        .topic-services span { color: var(--accent); }
 
-      .card-text {
-        font-size: 14px;
-      }
+        /* Modern Service Cards */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 25px;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Icon Container */
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            background: rgba(24, 221, 89, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-size: 1.4rem;
+            transition: 0.3s;
+        }
+        .card:hover .icon-box {
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-   <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary shadow-sm">
-      <div class="container">
-       
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link active" href="index.html">HOME</a>
-            <a class="nav-link" href="services.html">SERVICES</a>
-            <a class="nav-link" href="resume.html">RESUME</a>
-            <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
-            <a class="nav-link" href="contact.html">CONTACTS</a>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">PRABASH<span style="color:var(--accent)">.DEV</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">SERVICES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.html">RESUME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">PORTFOLIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">CONTACTS</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <!-- Topic -->
-    <h2 class="topic-services">MY SERVICES</h2>
-
-    <!-- Cards Section -->
     <div class="container">
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-4">
-          <div class="card border-light mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Software Engineering</h5>
-              <p class="card-text">
-                Designing and developing high-quality software solutions using modern programming practices. I focus on building scalable, efficient, and maintainable applications tailored to user needs.
-              </p>
-            </div>
-          </div>
-        </div>
+        <h2 class="topic-services" data-aos="fade-down">MY <span>SERVICES</span></h2>
 
-        <div class="col-md-4">
-          <div class="card border-light mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Backend Development</h5>
-              <p class="card-text">
-Building robust server-side applications and APIs that power web and mobile applications. Skilled in database design, server management, and ensuring smooth data flow between front-end and back-end systems.              </p>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                    <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+                    <h5 class="card-title">Software Engineering</h5>
+                    <p class="card-text">Designing and developing high-quality software solutions using modern programming practices. I focus on building scalable, efficient, and maintainable applications.</p>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card border-light mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Frontend Development</h5>
-              <p class="card-text">
-                Creating interactive, responsive, and visually appealing user interfaces using HTML, CSS, JavaScript, and modern frameworks. Focused on delivering smooth user experiences across all devices.
-              </p>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                    <div class="icon-box"><i class="fa-solid fa-terminal"></i></div>
+                    <h5 class="card-title">Backend Development</h5>
+                    <p class="card-text">Building robust server-side applications and APIs. Skilled in Java, Spring Boot, and managing smooth data flow between front-end and back-end systems.</p>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card border-light mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Web Development</h5>
-              <p class="card-text">
-                Building complete, dynamic, and scalable websites by combining both frontend and backend technologies. Focused on creating secure, high-performance solutions tailored to user needs.
-              </p>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card">
+                    <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+                    <h5 class="card-title">Frontend Development</h5>
+                    <p class="card-text">Creating interactive, responsive, and visually appealing user interfaces using HTML, CSS, JavaScript, and modern frameworks like React.</p>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card border-light mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Mobile app Develpment</h5>
-              <p class="card-text">
-                Creating cross-platform mobile apps with seamless user experience.
-              </p>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card">
+                    <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                    <h5 class="card-title">Web Development</h5>
+                    <p class="card-text">Building complete, dynamic, and scalable websites. Focused on creating secure, high-performance solutions tailored to specific user needs.</p>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card border-light mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Database Design & Management</h5>
-              <p class="card-text">
-                Structuring, optimizing, and securing databases for reliable data handling.
-              </p>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="card">
+                    <div class="icon-box"><i class="fa-solid fa-mobile-button"></i></div>
+                    <h5 class="card-title">Mobile App Development</h5>
+                    <p class="card-text">Creating cross-platform mobile apps with a focus on seamless user experience and modern UI/UX principles.</p>
+                </div>
             </div>
-          </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="card">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <h5 class="card-title">Database Design</h5>
+                    <p class="card-text">Structuring, optimizing, and securing databases (MySQL) for reliable, high-speed data handling and integrity.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
 </html>

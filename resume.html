@@ -1,161 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prabash | Resume</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Gravitas+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050a18;
+            --accent: #18dd59;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-muted: #94a3b8;
+        }
 
-  <style>
-    body {
-      background-color: #0B1D51;
-      font-family: 'Nunito', sans-serif;
-      color: #fff;
-      padding-bottom: 50px;
-    }
-    h2 {
-      margin: 40px 0 20px;
-      color: chartreuse;
-      text-align: center;
-      font-family: "Gravitas One", serif;
-    }
-    .card {
-      border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    }
-    .section-row {
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary shadow-sm">
+        body {
+            background-color: var(--bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        /* Background Glows */
+        .glow {
+            position: fixed;
+            width: 500px; height: 500px;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        .glow-1 { background: var(--accent); top: -10%; right: -10%; }
+        .glow-2 { background: #6366f1; bottom: -10%; left: -10%; }
+
+        /* Navbar */
+        .navbar {
+            padding: 1.5rem 0;
+            background: rgba(5, 10, 24, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-link { 
+            font-weight: 600; color: #fff !important; margin-left: 20px;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+
+        /* Headings */
+        h2 {
+            font-weight: 800; font-size: 2.5rem; letter-spacing: -1px;
+            margin: 60px 0 30px; color: #fff;
+        }
+        h2 span { color: var(--accent); }
+
+        /* Modern Glass Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .glass-card:hover {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        /* Skill Pill Styling */
+        .skill-badge {
+            background: rgba(24, 221, 89, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(24, 221, 89, 0.2);
+            padding: 12px 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .skill-badge:hover {
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Timeline Info */
+        .date-tag {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Info Grid (About Me) */
+        .info-label { color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: block; }
+        .info-value { color: #fff; font-size: 1rem; margin-bottom: 15px; display: block; }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <div class="container">
-       
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand fw-bold" href="index.html">PRABASH<span
+            style="color:var(--accent)">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link active" href="index.html">HOME</a>
-            <a class="nav-link" href="services.html">SERVICES</a>
-            <a class="nav-link" href="resume.html">RESUME</a>
-            <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
-            <a class="nav-link" href="contact.html">CONTACTS</a>
-          </div>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link"
+                href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="services.html">SERVICES</a></li>
+            <li class="nav-item"><a class="nav-link active"
+                href="resume.html">RESUME</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="portfolio.html">PORTFOLIO</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="contact.html">CONTACTS</a></li>
+          </ul>
         </div>
       </div>
     </nav>
 
+    <div class="container">
+      <h2 data-aos="fade-right">My <span>Education</span></h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card">
+            <span class="date-tag">2025 (Reading)</span>
+            <h5>University of Westminster</h5>
+            <p class>MSc in Software Engineering </p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
 
-    <!-- Education Section -->
-    <h2>Education</h2>
-    <div class="row g-4 section-row">
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body">
-            <h5 class="card-title">University of Moratuwa</h5>
-            <p class="card-text">NDT (2020 - 2024)</p>
+          <div class="glass-card">
+            <span class="date-tag">2020 - 2024</span>
+            <h5>University of Moratuwa</h5>
+            <p class> Civil Engineering (NDT)</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card">
+            <span class="date-tag">High School</span>
+            <h5>A-Levels</h5>
+            <p class>Physical Science Stream (Mathematics)</p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body">
-            <h5 class="card-title">MSc</h5>
-            <p class="card-text">University of Westminster (Reading), 2025</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body">
-            <h5 class="card-title">High School</h5>
-            <p class="card-text">A-Levels in Mathematics Stream</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Experience Section -->
-    <h2>Experience</h2>
-    <div class="row g-4 section-row">
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body">
-            <h5 class="card-title">Trainee Engineer</h5>
-            <p class="card-text">Access Engineering Pvt. Ltd. – Marina Square Mix Development Project</p>
+      <h2 data-aos="fade-right">Work <span>Experience</span></h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="glass-card">
+            <span class="date-tag">Trainee Engineer</span>
+            <h5>Access Engineering Pvt. Ltd.</h5>
+            <p class>Marina Square Mix Development Project. Handled site
+              coordination and engineering oversight.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="glass-card">
+            <span class="date-tag">Trainee Engineer</span>
+            <h5>Sanken Engineering Pvt. Ltd.</h5>
+            <p class>J’Pura Engineering Faculty Project. Focused on structural
+              implementation and safety standards.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body">
-            <h5 class="card-title">Trainee Engineer</h5>
-            <p class="card-text">Sankekn Engineering Pvt. Ltd. – J’Pura Engineering Faculty Project</p>
-          </div>
-        </div>
+
+      <h2 data-aos="fade-right">Technical <span>Skills</span></h2>
+      <div class="row g-3">
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">Java</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">Spring Boot</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">MySQL</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">React</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">JavaFX</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">HTML/CSS/JS</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">Standalone Apps</div></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in"><div
+            class="skill-badge">REST APIs</div></div>
       </div>
-    </div>
 
-    <!-- Skills Section -->
-    <h2>Skills</h2>
-    <div class="row g-4 section-row">
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>Java</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>MySQL</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>React</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>Spring Boot</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>JavaFX</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>HTML / CSS / JS</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>Advanced Java</h5></div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="card bg-dark text-white h-100"><div class="card-body"><h5>Standalone Apps</h5></div></div></div>
-    </div>
-
-    <!-- About Section -->
-    <h2>About</h2>
-    <div class="card bg-dark text-white">
-      <div class="card-body">
-        <h5 class="card-title">About Me</h5>
+      <h2 data-aos="fade-right">About <span>Me</span></h2>
+      <div class="glass-card" data-aos="fade-up">
         <div class="row">
-          <div class="col-md-4"><p><strong>Name:</strong> Prabash Withanachchchi</p></div>
-          <div class="col-md-4"><p><strong>Gender:</strong> Male</p></div>
-          <div class="col-md-4"><p><strong>Status:</strong> Unmarried</p></div>
-          <div class="col-md-4"><p><strong>Country:</strong> Sri Lanka</p></div>
-          <div class="col-md-4"><p><strong>City:</strong> Galle</p></div>
-          <div class="col-md-4"><p><strong>Availability:</strong> Full-time</p></div>
-          <div class="col-md-4"><p><strong>Phone:</strong> 076-8349593</p></div>
-          <div class="col-md-4"><p><strong>Email:</strong> prabashWithanachchi11111@gmail.com</p></div>
-          <div class="col-md-4"><p><strong>Languages:</strong> Sinhala, English</p></div>
+          <div class="col-md-4">
+            <span class="info-label">Full Name</span>
+            <span class="info-value">Prabash Withanachchi</span>
+
+            <span class="info-label">Email</span>
+            <span class="info-value"
+              style="font-size: 0.8rem;">withanachchi.pc@gmail.com</span>
+          </div>
+          <div class="col-md-4">
+            <span class="info-label">Location</span>
+            <span class="info-value">Galle, Sri Lanka</span>
+
+            <span class="info-label">Phone</span>
+            <span class="info-value">076-8349593</span>
+          </div>
+          <div class="col-md-4">
+            <span class="info-label">Languages</span>
+            <span class="info-value">Sinhala, English</span>
+
+            <span class="info-label">Availability</span>
+            <span class="info-value">Full-Time / Freelance</span>
+          </div>
         </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+  </body>
 </html>

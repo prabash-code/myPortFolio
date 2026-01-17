@@ -1,79 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prabash | Let's Connect</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    body {
-      background-color: #0B1D51;
-      color: #fff;
-      font-family: 'Nunito', sans-serif;
-    }
-    h2.connect-page {
-      text-align: center;
-      margin: 40px 0 30px 0;
-         color: chartreuse;
-        text-align: center;
-        font-family: "Gravitas One", serif;
-        font-weight: 200;
-        font-style: normal;
-    }
-    .contact-container {
-      max-width: 500px;
-      margin: auto;
-      padding: 20px;
-      background-color: rgba(255,255,255,0.05);
-      border-radius: 10px;
-    }
-    .contact-container .form-control {
-      margin-bottom: 15px;
-      border-radius: 5px;
-    }
-    .contact-container .btn {
-      width: 100%;
-    }
-  </style>
-</head>
-<body>
+    <style>
+        :root {
+            --bg: #050a18;
+            --accent: #18dd59;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-muted: #94a3b8;
+        }
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary shadow-sm">
-    <div class="container">
+        body {
+            background-color: var(--bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="index.html">HOME</a>
-          <a class="nav-link" href="services.html">SERVICES</a>
-          <a class="nav-link" href="resume.html">RESUME</a>
-          <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
-          <a class="nav-link" href="contact.html">CONTACTS</a>
+        /* Ambient Glow Backgrounds */
+        .glow {
+            position: fixed;
+            width: 500px; height: 500px;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        .glow-1 { background: var(--accent); top: -10%; right: -10%; }
+        .glow-2 { background: #6366f1; bottom: -10%; left: -10%; }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 1.5rem 0;
+            background: rgba(5, 10, 24, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-link { 
+            font-weight: 600; color: #fff !important; margin-left: 20px;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+
+        /* Heading */
+        .connect-page {
+            font-weight: 800;
+            font-size: 3rem;
+            text-align: center;
+            margin: 60px 0 20px;
+            letter-spacing: -1px;
+        }
+        .connect-page span { color: var(--accent); }
+
+        /* Glass Form Container */
+        .contact-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 40px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Modern Input Styling */
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(24, 221, 89, 0.2);
+        }
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Submit Button */
+        .btn-success {
+            background: var(--accent);
+            border: none;
+            color: #000;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-success:hover {
+            background: #15c850;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(24, 221, 89, 0.3);
+        }
+
+        /* Contact Details Info */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+        .contact-info-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+              /* Social Icon Bar */
+        .social-links-modern {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .social-links-modern a {
+            width: 45px; height: 45px;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-links-modern a:hover {
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.1);
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">PRABASH<span
+            style="color:var(--accent)">.DEV</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link"
+                href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="services.html">SERVICES</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="resume.html">RESUME</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="portfolio.html">PORTFOLIO</a></li>
+            <li class="nav-item"><a class="nav-link active"
+                href="contact.html">CONTACTS</a></li>
+          </ul>
         </div>
       </div>
+    </nav>
+
+    <div class="container">
+      <h2 class="connect-page" data-aos="fade-down">Let's
+        <span>Connect</span></h2>
+      <p class="text-center  mb-5" data-aos="fade-up">Have a project
+        in mind? Let's build something amazing together.</p>
+
+      <div class="contact-container" data-aos="zoom-in">
+        <div class="row mb-4 text-center">
+          <div class="col-md-6">
+            <div class="contact-info-item justify-content-center">
+              <i class="fas fa-envelope"></i>
+              <span>withanachchi.pc@gmail.com</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="contact-info-item justify-content-center">
+              <i class="fas fa-phone"></i>
+              <span>076-8349593</span>
+            </div>
+          </div>
+        </div>
+
+        <form>
+          <div class="mb-3">
+            <input type="text" name="name" id="full-name" class="form-control"
+              placeholder="Full Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" name="email" id="email" class="form-control"
+              placeholder="Email Address" required>
+          </div>
+          <div class="mb-3">
+            <input type="tel" name="phone" id="number" class="form-control"
+              placeholder="Contact Number">
+          </div>
+          <div class="mb-4">
+            <textarea class="form-control" rows="4"
+              placeholder="Your Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Send Message <i
+              class="fas fa-paper-plane ms-2"></i></button>
+          <div class="social-links-modern">
+            <a href="https://github.com/prabash-code" target="_blank"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/prabash-withanachchi/"
+              target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+      </form>
     </div>
-  </nav>
 
-  <!-- Contact Form -->
-  <h2 class="connect-page">Let's Connect</h2>
-  <div class="contact-container">
-    <form>
-      <input type="text" name="name" id="full-name" class="form-control" placeholder="Name" required>
-      <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-      <input type="tel" name="phone" id="number" class="form-control" placeholder="Contact Number">
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+  </body>
 </html>

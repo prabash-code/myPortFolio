@@ -1,159 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prabash | Portfolio Projects</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #0B1D51;
-      font-family: 'Nunito', sans-serif;
-      color: #fff;
-    }
-    h2 {
-      text-align: center;
-      margin: 40px 0 20px 0;
-        color: chartreuse;
-        text-align: center;
-        font-family: "Gravitas One", serif;
-        font-weight: 400;
-        font-style: normal;
-    }
-    .card {
-      margin-bottom: 30px;
-      border-radius: 10px;
-      width: 400px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      
-     
-    }
-    .card:hover {
-      transform: translateY(-5px);}
-  </style>
+    <style>
+        :root {
+            --bg: #050a18;
+            --accent: #18dd59;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .glow {
+            position: fixed;
+            width: 400px; height: 400px;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        .glow-left { background: var(--accent); top: 20%; left: -10%; }
+        .glow-right { background: #6366f1; bottom: 10%; right: -10%; }
+
+        /* Consistent Navbar */
+        .navbar {
+            padding: 1.5rem 0;
+            background: rgba(5, 10, 24, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-link { 
+            font-weight: 600; 
+            color: #fff !important; 
+            margin-left: 20px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+
+        /* Section Heading */
+        h2 {
+            font-weight: 800;
+            font-size: 3rem;
+            text-align: center;
+            margin: 60px 0 40px;
+            letter-spacing: -2px;
+        }
+        .highlight-text { color: var(--accent); }
+
+        /* Modern Glass Project Cards */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: 0.4s;
+        }
+        .card:hover .card-img-top { filter: grayscale(0%); }
+
+        .card-body { padding: 25px; }
+        .card-title { font-weight: 700; color: #fff; margin-bottom: 15px; }
+        .card-text { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+
+        /* Project Badges/Tech Stack */
+        .tech-badge {
+            font-size: 0.7rem;
+            background: rgba(24, 221, 89, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Buttons */
+        .btn-project {
+            padding: 8px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-live { background: var(--accent); color: #000; }
+        .btn-git { background: transparent; color: #fff; border: 1px solid var(--glass-border); }
+        .btn-project:hover { transform: scale(1.05); opacity: 0.9; color: #000; }
+    </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary shadow-sm">
-    <div class="container">
+    <div class="glow glow-left"></div>
+    <div class="glow glow-right"></div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="index.html">HOME</a>
-          <a class="nav-link" href="services.html">SERVICES</a>
-          <a class="nav-link" href="resume.html">RESUME</a>
-          <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
-          <a class="nav-link" href="contact.html">CONTACTS</a>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" style="color:var(--accent)">PRABASH.DEV</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">SERVICES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.html">RESUME</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portfolio.html">PORTFOLIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">CONTACTS</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <div class="container pb-5">
+        <h2 data-aos="fade-down">Latest <span class="highlight-text">Projects</span></h2>
+        
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                    <img src="/img/frist-project.png" class="card-img-top" alt="AI Travel Guide">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <span class="tech-badge">Gemini AI</span>
+                            <span class="tech-badge">Bootstrap</span>
+                            <span class="tech-badge">JS</span>
+                        </div>
+                        <h5 class="card-title">AI Travel Guide Web App</h5>
+                        <p class="card-text">From sleek UI design to intelligent destination insights using Google Gemini AI. Makes trip planning smarter and more engaging.</p>
+                        <div class="d-flex gap-2 mt-4">
+                            <a href="https://lnkd.in/dVdT-HH2" class="btn-project btn-live">Live Demo</a>
+                            <a href="https://lnkd.in/dd5_saB6" class="btn-project btn-git">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250/111/333" class="card-img-top" alt="Project 2">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">MySQL</span>
+                        </div>
+                        <h5 class="card-title">Inventory System</h5>
+                        <p class="card-text">A robust backend solution for managing warehouse stock levels with real-time database updates and reporting logic.</p>
+                        <div class="d-flex gap-2 mt-4">
+                            <a href="#" class="btn-project btn-live">Live Demo</a>
+                            <a href="#" class="btn-project btn-git">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250/111/333" class="card-img-top" alt="Project 3">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <span class="tech-badge">HTML/CSS</span>
+                            <span class="tech-badge">Responsive</span>
+                        </div>
+                        <h5 class="card-title">E-Commerce UI</h5>
+                        <p class="card-text">Modern, mobile-first shopping experience with clean product grids and smooth transition effects.</p>
+                        <div class="d-flex gap-2 mt-4">
+                            <a href="#" class="btn-project btn-live">Live Demo</a>
+                            <a href="#" class="btn-project btn-git">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </nav>
 
-  <!-- Portfolio Section -->
-  <h2>Latest Projects</h2>
-  <div class="container">
-    <div class="row g-4 justify-content-center">
-      <!-- Card 1 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <img src="/img/frist-project.png" class="card-img-top" alt="Project 1">
-          <div class="card-body">
-            <h5 class="card-title">Project 1</h5>
-            <p class="card-text">🌍 AI-Powered Travel Guide Web App ✈️
-
-From sleek UI design to intelligent destination insights, this travel app makes planning trips smarter, faster, and more engaging. 🌍✨<br>
-💡 Key Features<br>
- ✅ AI-powered travel recommendations with Google Gemini<br>
- ✅ Fully responsive design for a seamless mobile experience<br>
- ✅ Modern UI crafted with HTML, CSS, JavaScript, and Bootstrap<br>
-🚀 Excited to combine web technologies + AI to build something practical, user-friendly, and future-ready.<br>
-
-
-hashtag#TravelTech hashtag#WebDevelopment hashtag#AI hashtag#GoogleGemini hashtag#JavaScript hashtag#Bootstrap hashtag#Innovation hashtag#TravelApp</p>
-            <a href="https://lnkd.in/dVdT-HH2" class="btn btn-primary" style="margin: 10px;">Live Demo</a>
-            <br>
-            <a href=" https://lnkd.in/dd5_saB6" class="btn btn-primary" style="margin-left: 10px;">Git Repo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <img src="..." class="card-img-top" alt="Project 2">
-          <div class="card-body">
-            <h5 class="card-title">Project 2</h5>
-            <p class="card-text">Short description of the project.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <img src="..." class="card-img-top" alt="Project 3">
-          <div class="card-body">
-            <h5 class="card-title">Project 3</h5>
-            <p class="card-text">Short description of the project.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <img src="..." class="card-img-top" alt="Project 4">
-          <div class="card-body">
-            <h5 class="card-title">Project 4</h5>
-            <p class="card-text">Short description of the project.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <img src="..." class="card-img-top" alt="Project 4">
-          <div class="card-body">
-            <h5 class="card-title">Project 4</h5>
-            <p class="card-text">Short description of the project.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card bg-dark text-white h-100">
-          <img src="..." class="card-img-top" alt="Project 4">
-          <div class="card-body">
-            <h5 class="card-title">Project 4</h5>
-            <p class="card-text">Short description of the project.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Add more cards as needed -->
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 </body>
 </html>
