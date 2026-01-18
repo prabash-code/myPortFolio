@@ -204,7 +204,7 @@
           </div>
         </div>
 
-        <form>
+        <form id="contact-form">
           <div class="mb-3">
             <input type="text" name="name" id="full-name" class="form-control"
               placeholder="Full Name" required>
@@ -218,7 +218,7 @@
               placeholder="Contact Number">
           </div>
           <div class="mb-4">
-            <textarea class="form-control" rows="4"
+            <textarea class="form-control" rows="4" id="message"
               placeholder="Your Message"></textarea>
           </div>
           <button type="submit" class="btn btn-success">Send Message <i
@@ -230,6 +230,7 @@
               target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-pinterest-p"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
+             <a href="https://medium.com/@prabashwithanachchi"><i class="fab fa-medium"></i></a>
           </div>
         </div>
 
@@ -242,5 +243,15 @@
     <script>
         AOS.init({ duration: 800, once: true });
     </script>
+    <!-- 1️⃣ EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- 2️⃣ Initialize EmailJS -->
+<script>
+  emailjs.init("nGxErVLrHakRUDaK3"); // Replace with your actual Public Key
+</script>
+
+<!-- 3️⃣ Your custom JS -->
+<script src="app.js"></script>
   </body>
 </html>
